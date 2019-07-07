@@ -4,7 +4,8 @@ pipeline {
     stages {
         stage('test') {
             steps {
-                sh label: '', script: 'ls'
+               // sh label: '', script: 'ls'
+                sh 'ls'
             }
           }
       stage('build') {
