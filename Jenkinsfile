@@ -8,10 +8,10 @@ pipeline {
                 sh 'ls'
             }
           }
-      stage('build') {
-            steps {
-                sh label: '', script: 'ls'
-        }
+      //stage('build') {
+          //  steps {
+                //sh label: '', script: 'ls'
+        //}
     }
 }
 }
