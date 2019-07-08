@@ -34,5 +34,13 @@ mvn compile'''
 mvn package'''   
                            }
             }
+                                    stage('tomcat&Install&Deploy') {
+            steps {
+                   echo "Checking tomcat install or not if not then deploy the tomcat"
+                   build 'Tomcat_install'
+                    echo "deploy the code on tomcat"
+                      
+                           }
+            }
     }
 }
