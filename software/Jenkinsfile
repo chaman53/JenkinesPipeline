@@ -1,0 +1,25 @@
+//jenkins file for install tomcat
+//Author : Kaushal Chaman email id:- chamankaushal@gmail.com
+
+pipeline {
+    agent any
+    stages {
+        stage('tomcat_install') {
+            steps {
+                sh label: '', script: '''#!/bin/bash
+echo "checking tomcat installed or not"
+if [ -d  "/Applications/apache-tomcat-7.0.94" ]
+then
+echo "tomcat already installed"
+else 
+sudo mkdir /Applications
+cd /Applications
+ls
+sudo git clone https://github.com/chaman53/JenkinesPipeline.git
+cd /Applications/JenkinesPipeline/software/
+sudo cp -r apache-tomcat-7.0.94 ../../
+fi'''
+            }
+        }
+    }
+}
