@@ -45,5 +45,13 @@ mvn package'''
                     
                            }
             }
+                                                stage('Email') {
+            steps {
+                   echo "sending email notification"
+                    emailext body: '', subject: 'Pipeline_project', to: 'devopsengineer66@gmail.com'
+                    
+                           
+                                                }
+            }
     }
 }
