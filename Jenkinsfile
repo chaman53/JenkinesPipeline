@@ -39,7 +39,10 @@ mvn package'''
                    echo "Checking tomcat install or not if not then deploy the tomcat"
                    build 'Tomcat_install'
                     echo "deploy the code on tomcat"
-                      
+                    sh label: '', script: 'sudo rm -rf /Applications/apache-tomcat-7.0.94/webapps/multi3-3.7-SNAPSHOT.war'
+                    sh label: '', script: 'sudo cp -r /var/lib/jenkins/workspace/Pipeline_project/MavenProject/multi3/target/multi3-3.7-SNAPSHOT.war /Applications/apache-tomcat-7.0.94/webapps/'
+                    //sh label: '',script: 'sudo '
+                    
                            }
             }
     }
