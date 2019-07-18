@@ -5,7 +5,7 @@ pipeline {
         maven 'mymaven3.6.1'
     }
         stages {
-            stage ('checkout') {
+            stage ('clone') {
                 steps {
                   echo " checkout the code from SCM server" 
                   git 'https://github.com/chaman53/jenkinsproject.git'
@@ -13,7 +13,7 @@ pipeline {
                 }
                 
             }
-                        stage ('compile&Package') {
+                        stage ('build') {
                 steps {
                   echo " compile and package the code" 
                   //git 'https://github.com/chaman53/jenkinsproject.git'
@@ -24,7 +24,14 @@ mvn package'''
                 }
                 
             }
-                                    stage ('tomcatInstallation&deployment') {
+                    stage ('Archieve Artifacts') {
+            steps {
+                echo "archiving the artifacts"
+                archiveArtifacts 'MavenProject/multi3/target/*.war'
+            }
+            
+        }
+                                    stage ('deployment') {
                 steps {
                   echo " check tomcat installed or not if not then install and deploy the war file to the tomcat server" 
             //sh label: '', script: ''
