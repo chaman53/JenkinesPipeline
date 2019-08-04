@@ -1,3 +1,7 @@
+//####Pipeline job for edureka project #######
+//####Author : Kaushal Kumar Chaman ########
+//####version 1.0 4/08/2019###
+
 pipeline {
     
     agent any 
@@ -51,12 +55,27 @@ mvn package'''
         }
             stage ('Finbugreport') {
                 steps {
-                sh "mkdir javancss1 ; cd javancss1 ;pwd"
+                //sh "mkdir javancss1 ; cd javancss1 ;pwd"
+                sh "cd javancss1 ;pwd"
                 git 'https://github.com/vathsalahn/jenkins-demo.git'
                     sh "cd javancss-master ; mvn findbugs:findbugs ; pwd"
-                     deleteDir()
+                    // deleteDir()
                 }
             }
+                        stage ('Cobetura') {
+                steps {
+                    echo " cobertura report is in progress"
+                             sh label: '', script: '''cd /var/lib/jenkins/workspace/Final_project/MavenProject
+mvn cobertura:cobertura'''
+//([$class: 'CoberturaPublisher', autoUpdateHealth: false, autoUpdateStability: false, coberturaReportFile: '**/coverage.xml', failUnhealthy: false, failUnstable: false, maxNumberOfBuilds: 0, onlyStable: false, sourceEncoding: 'ASCII', zoomCoverageChart: false])
+  cobertura coberturaReportFile: '**/target/site/cobertura/coverage.xml'     
+//cobertura coberturaReportFile: '/var/lib/jenkins/workspace/Final_project/MavenProject/multi3/target/site/cobertura/coverage.xml'
+
+
+                }
+            }
+          //  stage ("Extract test results") {
+   // cobertura coberturaReportFile: '/var/lib/jenkins/workspace/Final_project/MavenProject/multi3/target/site/cobertura/coverage.xml'
+//}
         }
-                   
-}
+        }
