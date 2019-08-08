@@ -74,8 +74,11 @@ mvn cobertura:cobertura'''
 
                 }
             }
-          //  stage ("Extract test results") {
-   // cobertura coberturaReportFile: '/var/lib/jenkins/workspace/Final_project/MavenProject/multi3/target/site/cobertura/coverage.xml'
-//}
+        stage('Email') {
+            steps {
+                   echo "sending email notification"
+                    emailext body: '', subject: 'Jenkins pipeline Final_project job report', to: 'devopsengineer66@gmail.com'
         }
         }
+        }
+}
