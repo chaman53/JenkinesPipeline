@@ -1,0 +1,52 @@
+Micro Services is a buzz word now a days a and people usually questions what exactly are this micro services and how to test them.
+So in this article we will try to understand what is MicroServices and what are the different strategies to test them.
+Well before going into depth of Micro Services we need to understand what exactly is Monolithic Architecture that prevailed before the introduction of Micro Services.
+What is Monolithic Architecture
+
+￼
+Below are some of the important aspects of Monolithic Architecture
+Ø Entire application is built using single code base.
+Ø Application is further divided into multiple modules.
+Ø These Large monolithic code bases are complex and hard to understand.
+Ø If a new developer is getting started with it, he/she will be facing challenges to understand itself.
+Ø As these are from single code base, they need a single build.
+Ø And the build time will also be high, it will keep on increasing with addition of new features.
+Issues with Monolithic Architecture
+Ø UnScaling- Scaling the application will be very challenging as each time application needs to be updated even for smaller changes.
+Ø Once if application is done, it will be very difficult to change language or framework because everything is tightly coupled.
+Ø Slow Development-It takes lot of time to built since for any changes each and every thing has to be built sequentially.
+￼Ø Continuous integration and deployment will be complex with larger build times.
+Ø If there is any problem with code in a module, this may lead to failure of entire system.
+Ø if you want to handle this problem, you need to build entire application and deploy it entirely.
+What are MicroServices
+It is an architectural style that structures an application as a collection of services that are
+Highly maintainable and testable
+Loosely coupled
+Independently deployable
+Organized around business capabilities
+Owned by a small team
+The microservice architecture enables the rapid, frequent and reliable delivery of large, complex applications. It also enables an organization to evolve its technology stack.
+
+￼
+Some of important features include:
+This contains small individual modules for each service.
+Each service will be implementing a use-case.
+As these are independent, they will be very small and loosely coupled.
+Beauty of microservices is that each of the service can be having different code base.
+
+JAVA
+Python
+Java Script
+PHP etc.
+As these services are independent, they can be independent built and deploy.
+So, if there are any changes needed to be done in any service, We can deploy only that service build unlike entire build in monolithic architecture.
+Because of these flexibilities, we can develop and deploy services independent to each other.
+Developers need not have complete picture of entire project.
+They can only concentrate on the service they are working, which is very flexible to new employees.
+Maintaining several small teams for different services is flexible.
+
+Popular Microservices Testing Strategie:-
+1) ﻿Unit Testing
+2) ﻿Integration Testing
+3) ﻿End to End Testing
+
